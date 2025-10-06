@@ -44,7 +44,7 @@ export const Appointments = () => {
       value={inputPassword}
       onChange={(e) => getPassowrd(e.target.value)}
       ></input>
-      <button>Submit</button>
+      <button onClick={handleSubmit}>Submit</button>
     </div>
   );
 };
