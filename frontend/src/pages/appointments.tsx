@@ -7,7 +7,7 @@ export const Appointments = () => {
   const [inputPassword, getPassowrd] = useState("");
 
   const handleSubmit = async () => {
-    const res = await fetch("http://localhost:4000/api/data", {
+    const res = await fetch("/data", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
