@@ -24,13 +24,9 @@ console.log("POST /data route loaded");
 
 app.post('/data', async (c) => {
   try {
-    // Parse JSON body
     const body = await c.req.json();
 
     console.log('Received data from frontend:', body);
-    // e.g. { companyInput: "Acme", emailInput: "test@gmail.com", passwordInput: "12345" }
-
-    // You can now process it — e.g., save to DB, validate, etc.
 
     return c.json({
       success: true,
