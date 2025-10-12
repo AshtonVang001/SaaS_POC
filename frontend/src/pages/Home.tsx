@@ -3,13 +3,18 @@ import { useNavigate } from "react-router-dom";
 export const Home = () => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate("/appointments");
+  const handleDemo = () => {
+    navigate("/demo");
   };
+  const handleAccount = () => {
+    navigate("/create_account")
+  }
+
   return (
     <div>
       Welcome to SaaS how can i help you
-      <button onClick={handleClick}>appointments</button>
+      <button onClick={handleDemo}>Demo</button>
+      <button onClick={handleAccount}>Create Account</button>
     </div>
   );
 };

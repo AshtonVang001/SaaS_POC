@@ -1,8 +1,7 @@
 import { app } from "../app.js";
 
-app.post("/data", async (c) => {
+app.get("/data", async (c) => {
   const {companyName, username, password} = await c.req.json();
-  console.log("hello")
   // return c.text(companyName)
   try {
     const { companyName, username, password } = await c.req.json();

@@ -1,23 +1,22 @@
-import { Routes, Route } from 'react-router-dom'
-import { Home } from './pages/Home'
-import { Appointments } from './pages/appointments'
-import './App.css'
+import { Routes, Route } from "react-router-dom";
+import { Home } from "./pages/Home";
+import { Demo } from "./pages/Demo";
+import { CreateAccount } from "./pages/CreatAccount";
+import "./App.css";
 
 function App() {
-
   return (
     <div>
       <Routes>
-        <Route path= "/" element = {<Home />} />
-        <Route path= "/appointments" element = {<Appointments />} />
+        <Route path="/" element={<Home />} />
+        <Route path="/demo" element={<Demo />} />
+        <Route path="/create_account" element={<CreateAccount />} />
       </Routes>
-
     </div>
-  )
+  );
 }
 
-export default App
-
+export default App;
 
 //right now appointments page is the actual sign up for appointments
 //make a page to where they can actually book appointments
