@@ -3,7 +3,7 @@ import { useState } from "react";
 export const CreateAccount = () => {
   const [inputCompany, getCompany] = useState("");
   const [inputEmail, getEmail] = useState("");
-  const [inputPassword, getPassowrd] = useState("");
+  const [inputPassword, getPassoword] = useState("");
 
   const handleSubmit = async () => {
     const res = await fetch("/data", {
@@ -12,13 +12,14 @@ export const CreateAccount = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        companyInput: inputCompany,
-        emailIput: inputEmail,
-        passwordInput: inputPassword,
+        inputCompany: inputCompany,
+        inputEmail: inputEmail,
+        inputPassword: inputPassword,
       }),
     });
 
     const data = await res.json();
+    console.log(data);
     console.log("Response from backend", data);
   };
 
@@ -40,7 +41,7 @@ export const CreateAccount = () => {
         placeholder="Password"
         type="text"
         value={inputPassword}
-        onChange={(e) => getPassowrd(e.target.value)}
+        onChange={(e) => getPassoword(e.target.value)}
       ></input>
       <button onClick={handleSubmit}>Submit</button>
     </div>
