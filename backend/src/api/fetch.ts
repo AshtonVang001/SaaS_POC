@@ -30,10 +30,15 @@ app.post('/data', async (c) => {
 
     return c.json({
       success: true,
-      message: `Account created for ${body.companyInput}`,
+      message: `Account created for ${body.inputCompany}`,
     });
   } catch (error) {
     console.error('Error reading POST body:', error);
     return c.json({ success: false, message: 'Invalid request' }, 400);
   }
 });
+
+
+
+
+
