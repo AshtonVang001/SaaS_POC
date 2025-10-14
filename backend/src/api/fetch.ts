@@ -1,7 +1,6 @@
 import { app } from "../app.js";
 console.log("POST /data route loaded");
 
-
 // app.post("/data", async (c) => {
 //   // const {companyName, username, password} = await c.req.json();
 //   // return c.text(companyName)
@@ -22,23 +21,18 @@ console.log("POST /data route loaded");
 //   // return c.text("hello")
 // });
 
-app.post('/data', async (c) => {
+app.post("/data", async (c) => {
   try {
     const body = await c.req.json();
 
-    console.log('Received data from frontend:', body);
+    console.log("Received data from frontend:", body);
 
     return c.json({
       success: true,
       message: `Account created for ${body.inputCompany}`,
     });
   } catch (error) {
-    console.error('Error reading POST body:', error);
-    return c.json({ success: false, message: 'Invalid request' }, 400);
+    console.error("Error reading POST body:", error);
+    return c.json({ success: false, message: "Invalid request" }, 400);
   }
 });
-
-
-
-
-

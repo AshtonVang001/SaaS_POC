@@ -1,11 +1,14 @@
-import { serve } from '@hono/node-server'
-import { app } from './app.js';
-import './routes/home.js'
-import './api/fetch.js'
+import { serve } from "@hono/node-server";
+import { app } from "./app.js";
+import "./routes/home.js";
+import "./api/fetch.js";
 
-serve({
-  fetch: app.fetch,
-  port: 4000
-}, (info) => {
-  console.log(`Server is running on http://localhost:${info.port}`)
-})
+serve(
+  {
+    fetch: app.fetch,
+    port: 4000,
+  },
+  (info) => {
+    console.log(`Server is running on http://localhost:${info.port}`);
+  }
+);
