@@ -7,14 +7,19 @@ export const Home = () => {
     navigate("/demo");
   };
   const handleAccount = () => {
-    navigate("/create_account")
-  }
+    navigate("/create_account");
+  };
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <div>
       Welcome to SaaS how can i help you
       <button onClick={handleDemo}>Demo</button>
       <button onClick={handleAccount}>Create Account</button>
+      <button onClick={handleLogin}>Login</button>
     </div>
   );
 };

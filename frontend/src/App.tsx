@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
 import { Demo } from "./pages/Demo";
 import { CreateAccount } from "./pages/CreatAccount";
+import { Login } from "./pages/Login";
 import "./App.css";
 
 function App() {
@@ -11,6 +12,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/demo" element={<Demo />} />
         <Route path="/create_account" element={<CreateAccount />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   );
