@@ -1,9 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const CreateAccount = () => {
   const [inputCompany, getCompany] = useState("");
   const [inputEmail, getEmail] = useState("");
   const [inputPassword, getPassoword] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmit = async () => {
     const res = await fetch("/create-account", {
@@ -22,6 +25,10 @@ export const CreateAccount = () => {
     console.log(data);
     console.log("Response from backend", data);
   };
+
+      const handleBack = () => {
+      navigate("/");
+    }
 
   return (
     <div>
@@ -44,6 +51,7 @@ export const CreateAccount = () => {
         onChange={(e) => getPassoword(e.target.value)}
       ></input>
       <button onClick={handleSubmit}>Submit</button>
+      <button onClick={handleBack}>back</button>
     </div>
   );
 };
