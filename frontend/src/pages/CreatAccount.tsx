@@ -6,15 +6,15 @@ export const CreateAccount = () => {
   const [inputPassword, getPassoword] = useState("");
 
   const handleSubmit = async () => {
-    const res = await fetch("/data", {
+    const res = await fetch("/create-account", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        inputCompany: inputCompany,
-        inputEmail: inputEmail,
-        inputPassword: inputPassword,
+        companyName: inputCompany,
+        email: inputEmail,
+        password: inputPassword,
       }),
     });
 

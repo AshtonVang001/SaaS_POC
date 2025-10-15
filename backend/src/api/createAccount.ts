@@ -23,8 +23,13 @@ app.post("/create-account", async (c) => {
     } else {
       return c.json(
         { success: false, message: "Account creation failed" },
-        401
+        400
       );
     }
-  } catch {}
+  } catch(error) {
+    console.error("Error creating account:", error);
+    return c.json(
+      {sucess: false, message: `Account creation failed. Error: ${error}`}, 500
+    )
+  }
 });
