@@ -26,9 +26,9 @@ export const CreateAccount = () => {
     console.log("Response from backend", data);
   };
 
-      const handleBack = () => {
-      navigate("/");
-    }
+  const handleBack = () => {
+    navigate("/");
+  };
 
   return (
     <div>
