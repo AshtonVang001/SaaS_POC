@@ -2,6 +2,8 @@ import { app } from "../app.js";
 import { dbConfig } from "./dbconnect.js";
 import "dotenv/config";
 
+//need to hash the passoword
+
 app.post("/create-account", async (c) => {
   try {
     const { companyName, email, password } = await c.req.json();
