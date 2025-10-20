@@ -3,6 +3,7 @@ import { Home } from "./pages/Home";
 import { Demo } from "./pages/Demo";
 import { CreateAccount } from "./pages/CreatAccount";
 import { Login } from "./pages/Login";
+import { Dashboard } from "./pages/dashboard";
 import "./App.css";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/demo" element={<Demo />} />
         <Route path="/create_account" element={<CreateAccount />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
     </div>
   );
