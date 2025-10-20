@@ -8,6 +8,7 @@ export default defineConfig({
     proxy: {
       // '/data': 'http://localhost:4000',
       '/create-account': 'http://localhost:4000',
+      '/login': 'http://localhost:4000',
     }
   }
 })

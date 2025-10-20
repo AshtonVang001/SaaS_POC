@@ -1,5 +1,5 @@
 import { app } from "../app.js";
-console.log("POST /data route loaded");
+// console.log("POST /data route loaded");
 
 // app.post("/data", async (c) => {
 //   // const {companyName, username, password} = await c.req.json();

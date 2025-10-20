@@ -3,6 +3,7 @@ import { app } from "./app.js";
 import "./routes/home.js";
 import "./api/fetch.js";
 import "./api/createAccount.js"
+import "./api/login.js"
 
 serve(
   {
