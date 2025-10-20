@@ -11,11 +11,6 @@ app.post("/login", async (c) => {
     const company = await dbConfig`SELECT * FROM "company_credentials"
         WHERE company_name = ${companyName} AND email = ${email} AND password = ${password}`;
 
-    const header = {
-      type: "jwt",
-      alg: "HS256",
-    };
-
     const payload = {
       companyName: companyName,
       email: email,
