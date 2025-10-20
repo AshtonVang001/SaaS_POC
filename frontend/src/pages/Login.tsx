@@ -12,7 +12,22 @@ export const Login = () => {
     navigate("/");
   };
 
-  const handleSubmit = async () => {};
+  const handleSubmit = async () => {
+    const res = await fetch("/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        companyName: inputCompany,
+        email: inputEmail,
+        password: inputPassword,
+      }),
+    });
+
+    const data = await res.json();
+    console.log("Response from backend", data);
+  };
 
   return (
     <div>

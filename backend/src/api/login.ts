@@ -25,25 +25,23 @@ app.post("/login", async (c) => {
     const secret = process.env.SECRET;
     if (!secret) throw new Error("Missing SECRET environment variable");
 
-    
     const token = await sign(payload, secret);
 
     console.log(token);
 
-    if(company.length > 0){
-        setCookie(c, "loginToken", token, {
-            httpOnly: true, //JS on the client cannot read the cookie 
-            secure: true, //cookie is only sent over http connections
-            path: "/", //the path to where the cookie is sent to - this one means every domain
-            maxAge: 60 * 60 //1 hour
-        })
-        return c.text(token)
-    }else{
-        return c.json({success: false, message: "invalid credentials"})
+    if (company.length > 0) {
+      setCookie(c, "loginToken", token, {
+        httpOnly: true, //JS on the client cannot read the cookie
+        secure: true, //cookie is only sent over http connections
+        path: "/", //the path to where the cookie is sent to - this one means every domain
+        maxAge: 60 * 60, //1 hour
+      });
+      return c.json(token);
+    } else {
+      return c.json({ success: false, message: "invalid credentials" });
     }
-
   } catch (error) {
     console.error("Error logging in: ", error);
-    return c.json({success: false, message: "invalid credentials"})
+    return c.json({ success: false, message: "invalid credentials" });
   }
 });
