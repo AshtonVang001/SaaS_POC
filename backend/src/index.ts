@@ -4,6 +4,7 @@ import "./routes/home.js";
 import "./api/fetch.js";
 import "./api/createAccount.js"
 import "./api/login.js"
+import './api/dashboard.js'
 
 serve(
   {

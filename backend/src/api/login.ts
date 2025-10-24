@@ -22,7 +22,7 @@ app.post("/login", async (c) => {
 
     const token = await sign(payload, secret);
 
-    console.log(token);
+    console.log("Token created at login: ", token);
 
     if (company.length > 0) {
       setCookie(c, "loginToken", token, {
