@@ -15,7 +15,7 @@ export const dashboardAuth = (): MiddlewareHandler => {
     try {
         const payload = await verify(token, secret);
         await next();
-        return c.text(`verified payload: ${payload}`);
+        return c.json({message: "verfied payload: ", payload}, 200)
 
         //if payload is valid give access to dashboard
     } catch(error) {
@@ -24,4 +24,4 @@ export const dashboardAuth = (): MiddlewareHandler => {
   };
 };
 
-app.use("/dashboard", dashboardAuth());
+app.get("/dashboard", dashboardAuth());
