@@ -9,6 +9,7 @@ export default defineConfig({
       // '/data': 'http://localhost:4000',
       '/create-account': 'http://localhost:4000',
       '/login': 'http://localhost:4000',
+      '/dashboard': 'http://localhost:4000',
     }
   }
 })

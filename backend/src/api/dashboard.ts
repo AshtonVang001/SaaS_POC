@@ -1,7 +1,6 @@
 import type { MiddlewareHandler } from "hono";
 import { app } from "../app.js";
 import { getCookie } from "hono/cookie";
-import { dbConfig } from "./dbconnect.js";
 import { verify } from "hono/jwt";
 import "dotenv/config";
 
@@ -13,15 +12,19 @@ export const dashboardAuth = (): MiddlewareHandler => {
     if (!token) return c.text("Unauthorized", 401);
 
     try {
-        const payload = await verify(token, secret);
-        await next();
-        return c.json({message: "verfied payload: ", payload}, 200)
+      const payload = await verify(token, secret);
+      c.set("user", payload);
+      await next();
+      return c.json({ message: `Welcome ${payload.username}` }, 200);
 
-        //if payload is valid give access to dashboard
-    } catch(error) {
-        return c.text(`Cannot access: ${error}`)
+      //if payload is valid give access to dashboard
+    } catch (error) {
+      return c.text(`Cannot access: ${error}`);
     }
   };
 };
 
-app.get("/dashboard", dashboardAuth());
+app.get("/dashboard", dashboardAuth(), (c) => {
+  const user = c.get("user" as any); // payload from JWT
+  return c.json({ message: "Welcome to the dashboard!", user });
+});

@@ -4,6 +4,7 @@ import { Demo } from "./pages/Demo";
 import { CreateAccount } from "./pages/CreatAccount";
 import { Login } from "./pages/Login";
 import { Dashboard } from "./pages/dashboard";
+import { ProtectedRoute } from "./routes/ProtectedRoute";
 import "./App.css";
 
 function App() {
@@ -14,7 +15,14 @@ function App() {
         <Route path="/demo" element={<Demo />} />
         <Route path="/create_account" element={<CreateAccount />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<Dashboard/>} />
+        <Route
+          path="/dashboard"
+          element={
+            <ProtectedRoute>
+              <Dashboard />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </div>
   );

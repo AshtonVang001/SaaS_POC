@@ -26,9 +26,10 @@ app.post("/login", async (c) => {
 
     if (company.length > 0) {
       setCookie(c, "loginToken", token, {
-        httpOnly: true, //JS on the client cannot read the cookie
-        secure: true, //cookie is only sent over http connections
-        path: "/", //the path to where the cookie is sent to - this one means every domain
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
+      path: "/",
         maxAge: 60 * 60, //1 hour
       });
       return c.json(token);

@@ -22,8 +22,8 @@ export const CreateAccount = () => {
     });
 
     const data = await res.json();
-    //console.log(data);
-    //console.log("Response from backend", data);
+    console.log(data);
+    console.log("Response from backend", data);
   };
 
   const handleBack = () => {

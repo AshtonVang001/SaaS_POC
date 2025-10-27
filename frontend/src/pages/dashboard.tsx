@@ -1,4 +1,3 @@
-export const Dashboard = async () => {
-  
-  return <div>Dashboard</div>;
+export const Dashboard = () => {
+  return <div>Welcome to your Dashboard!</div>;
 };
