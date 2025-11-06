@@ -1,8 +1,10 @@
 import { Navigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { AuthContext } from "../context/AuthContext";
 
 export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
+  const [companyName, setCompanyName] = useState("");
 
   useEffect(() => {
     const checkAuth = async () => {
@@ -14,6 +16,8 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
         });
 
         if (response.ok) {
+          const data = await response.json();
+          setCompanyName(data.companyName);
           setIsAuthenticated(true);
         } else {
           setIsAuthenticated(false);
@@ -37,5 +41,9 @@ export const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   }
 
   // Otherwise, show the protected page
-  return children;
+  return (
+    <AuthContext.Provider value={{ companyName }}>
+      {children}
+    </AuthContext.Provider>
+  )
 };

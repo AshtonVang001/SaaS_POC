@@ -15,7 +15,6 @@ export const dashboardAuth = (): MiddlewareHandler => {
       const payload = await verify(token, secret);
       c.set("user", payload);
       await next();
-      return c.json({ message: `Welcome ${payload.username}` }, 200);
 
       //if payload is valid give access to dashboard
     } catch (error) {
@@ -26,5 +25,9 @@ export const dashboardAuth = (): MiddlewareHandler => {
 
 app.get("/dashboard", dashboardAuth(), (c) => {
   const user = c.get("user" as any); // payload from JWT
-  return c.json({ message: "Welcome to the dashboard!", user });
+  return c.json({
+    message: `Welcome ${user.companyName}`,
+    companyName: user.companyName,
+    user,
+  });
 });

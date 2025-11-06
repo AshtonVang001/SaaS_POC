@@ -1,3 +1,7 @@
+import { useAuth } from "../context/AuthContext";
+
 export const Dashboard = () => {
-  return <div>Welcome to your Dashboard!</div>;
+  const { companyName } = useAuth();
+
+  return <div>Welcome {companyName} to your Dashboard!</div>;
 };
