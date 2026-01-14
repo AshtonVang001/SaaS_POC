@@ -22,7 +22,7 @@ export const Home = () => {
     <div>
       Welcome to SaaS how can i help you
       <button onClick={handleDemo}>Demo</button>
-      <button onClick={handleAccount}>Create Account</button>
+      <button onClick={handleAccount}>Create Your Organization</button>
       <button onClick={handleLogin}>Login</button>
       <button onClick={handleDashboard}>Dashboard</button>
     </div>
